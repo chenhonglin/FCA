@@ -1,0 +1,9 @@
+#
+# IOC IPC driver configuration
+#
+
+menuconfig SPI_IPC_IOC
+	tristate "SPI based IOC IPC driver"
+	default n
+	help
+	   This enables SPI IPC driver for IOC.

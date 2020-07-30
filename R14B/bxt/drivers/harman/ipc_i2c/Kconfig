@@ -1,0 +1,9 @@
+#
+# IPC-I2C for IVI driver configuration
+#
+
+menuconfig IPC_I2C
+	tristate "IPC-I2C for IVI driver"
+	default m
+	help
+	   This enables IPC via I2C for IVI driver.

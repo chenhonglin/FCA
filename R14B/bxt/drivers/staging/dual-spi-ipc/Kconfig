@@ -1,0 +1,9 @@
+#
+# IOC IPC driver configuration
+#
+
+menuconfig DUAL_SPI_IPC
+	tristate "Dual SPI based IOC IPC driver"
+	default n
+	help
+	   This enables dual SPI IPC driver for IOC.

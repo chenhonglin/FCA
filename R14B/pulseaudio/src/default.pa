@@ -1,0 +1,40 @@
+#!/usr/bin/pulseaudio -nF
+#
+# This file is part of PulseAudio.
+#
+# PulseAudio is free software; you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# PulseAudio is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with PulseAudio; if not, see <http://www.gnu.org/licenses/>.
+
+# This startup script is used only if PulseAudio is started per-user
+# (i.e. not in system mode)
+
+### Load audio drivers statically
+load-module module-alsa-sink device=pcmHW_0_2 sink_name=alsa_output.hw_0_2 tsched=0 fragment_size=6144 channels=8 rate=48000 fragments=3 rewind_safeguard=12288 format=s32le channel_map=aux0,aux1,aux2,aux3,aux4,aux5,aux6,aux7 mmap=1
+load-module module-combine-sink slaves=alsa_output.hw_0_2 adjust_time=0 channels=8 rate=48000 channel_map=aux0,aux1,aux2,aux3,aux4,aux5,aux6,aux7
+load-module module-alsa-source device=pcmHW_0_1 source_name=alsa_input.hw_0_1 tsched=0 rate=48000 channels=8 format=s32le channel_map=aux0,aux1,aux2,aux3,aux4,aux5,aux6,aux7
+
+load-module module-alsa-source device=hw:broxtontdf8532,7 source_name=alsa_input.hw_0_7 tsched=0 rate=48000 channels=8 format=s32le channel_map=aux0,aux1,aux2,aux3,aux4,aux5,aux6,aux7
+
+### Load several protocols
+load-module module-native-protocol-unix
+
+# load bridge for eoap
+load-module module-virtual-sink sink_name=bridge_8k_1  master=combined rate=8000 channels=1
+load-module module-virtual-sink sink_name=bridge_8k_2  master=combined rate=8000 channels=1
+load-module module-virtual-sink sink_name=bridge_16k_1 master=combined rate=16000 channels=1
+load-module module-virtual-sink sink_name=bridge_16k_2 master=combined rate=16000 channels=1
+load-module module-virtual-sink sink_name=bridge_24k_1 master=combined rate=24000 channels=1
+load-module module-virtual-sink sink_name=bridge_24k_2 master=combined rate=24000 channels=1
+
+# for AUX and Tuner
+load-module module-loopback source=alsa_input.hw_0_1 sink=combined rate=48000 channels=8 adjust_time=0 sink_input_properties=media.name=Tuner_Chime_SXM_Aux

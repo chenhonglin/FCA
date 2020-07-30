@@ -1,0 +1,9 @@
+#
+# Early power-moding driver configuration
+#
+
+menuconfig EARLY_PM
+	tristate "SPI based R1 backlight driver"
+	default y
+	help
+	   This enables R1 backlight control driver for IOC.

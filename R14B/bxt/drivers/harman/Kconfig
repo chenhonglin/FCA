@@ -1,0 +1,12 @@
+menu "Harman Device Drivers"
+
+config HARMAN_DRIVERS
+        tristate "HARMAN_DRIVERS"
+
+source "drivers/harman/nmtp/Kconfig"
+
+source "drivers/harman/ipc_i2c/Kconfig"
+
+source "drivers/harman/ipc_i2c_vtp/Kconfig"
+
+endmenu

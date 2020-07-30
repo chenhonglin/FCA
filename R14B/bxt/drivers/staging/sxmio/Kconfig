@@ -1,0 +1,9 @@
+#
+# IOC IPC driver configuration
+#
+
+menuconfig SXMIO
+	tristate "SXM Pin setup"
+	default n
+	help
+	   Enables module to export pins for SXM gpio control
