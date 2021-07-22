@@ -1,0 +1,19 @@
+#
+# NMTP Driver
+#
+config NMTP_SUPPORT
+        bool "NMTP driver Support"
+        help
+                Project specific flag between NMTP and NMTP_SPI DRIVER
+config NMTP
+        tristate "NMTP driver"
+        depends on SPI
+        help
+                Support for NMTP driver SPI device node creation.
+
+config DYNAMIC_NMTP_NODE
+        tristate "NMTP dynamic test"
+        depends on SPI
+        help
+                Support for NMTP dynamic SPI device node creation.
+

@@ -1,0 +1,152 @@
+choice
+        prompt "intel-ipu4 platform data"
+        default INTEL_IPU4_BXT_RVP_PDATA
+
+config INTEL_IPU4_BXT_RVP_PDATA
+	bool "Enable built in platform data for Broxton RVP"
+	---help---
+	Pre-ACPI system platform data is compiled inside kernel
+
+config INTEL_IPU4_BXT_P_PDATA
+	bool "Enable built in platform data for Broxton-P"
+	---help---
+	Pre-ACPI system platform data is compiled inside kernel
+config INTEL_IPU4_BXT_GP_PDATA
+	bool "Enable built in platform data for Gordon Peak"
+	---help---
+	Pre-ACPI system platform data is compiled inside kernel
+
+config INTEL_IPU4_BXT_GT_PDATA
+	bool "Enable built in platform data for Broxton-GT"
+	---help---
+	Pre-ACPI system platform data is compiled inside kernel
+endchoice
+
+config INTEL_IPU4_OV13858
+	bool "Compile platform data for OV13858"
+	depends on INTEL_IPU4_BXT_P_PDATA
+	---help---
+	This module is used to enable
+	Omnivision 13MP camera sensor
+	which is similar to OV13860
+config INTEL_IPU4_OV2740
+	bool "Compile platform data for OV2740"
+	depends on INTEL_IPU4_BXT_P_PDATA
+
+config INTEL_IPU4_IMX185
+	bool "Compile platform data for IMX185"
+	depends on INTEL_IPU4_BXT_P_PDATA
+
+config INTEL_IPU4_IMX477
+	bool "Compile platform data for IMX477 camera sensor"
+	depends on INTEL_IPU4_BXT_P_PDATA
+	---help---
+	Sony IMX477 sensor is enabled for DUAL Camera input.
+
+config INTEL_IPU4_OV13860
+	bool "Compile platform data for OV13860"
+	---help---
+	Omnivision 13MP camera sensor
+
+config INTEL_IPU4_OV10635
+	bool "Compile platform data for OV10635"
+	---help---
+	Omnivision 1MP camera sensor
+
+config INTEL_IPU4_MAGNA
+	bool "Compile platform data for MAGNA"
+        depends on INTEL_IPU4_BXT_P_PDATA
+	---help---
+	MAGNA Camera Sensor
+config INTEL_IPU4_AR0143_RVC
+	bool "Compile platform data for AR0143 RVC"
+	depends on GWM_BOARD
+	default n
+	---help---
+	Aptina AR1043 camera sensor with MAX9288 for RVC
+
+config INTEL_IPU4_AR0143_AVM
+	bool "Compile platform data for AR0143 AVM"
+	depends on GWM_BOARD
+	default n
+	---help---
+	Aptina AR1043 camera sensor with MAX9286 for AVM
+
+config INTEL_IPU4_IMX274
+	bool "Compile platform data for IMX274 camera sensor"
+	depends on INTEL_IPU4_BXT_P_PDATA
+	---help---
+	Sony 14MP camera sensor is enabled for HDR function.
+
+config INTEL_IPU4_OV10640
+	bool "Compile platform data for OV10640"
+	---help---
+	  Omnivision 1.4MP camera sensor
+
+config INTEL_IPU4_ADV7481
+	bool "Compile platform data for ADV7481"
+	---help---
+	HDMI2MIPI convertor device ADV7481
+
+config INTEL_IPU4_ADV7481_EVAL
+	bool "Compile platform data for ADV7481 evaluation board"
+	---help---
+	HDMI2MIPI convertor device ADV7481 eval board
+
+config INTEL_IPU4_ADV7281
+	bool "Compile platform data for ADV7281"
+	---help---
+	ADV7281 Video Decoder
+
+config INTEL_IPU4_DS90UB954_MOPAR
+        bool "Compile platform data for DS90UB954 MOPAR CAMERA"
+        ---help---
+        DS90UB954 driver for Mopar Digital Camera
+
+
+config DV1_CAMERA
+        bool "Compile platform data for enabling digital camera for DV1 board"
+	default n
+        ---help---
+        Support for Mopar Digital Camera on DV1 board
+
+config DV2_CAMERA
+        bool "Compile platform data for enabling digital camera for DV2 board"
+	default n
+        ---help---
+        Support for Mopar Digital Camera on DV2 board
+
+config INTEL_IPU4_BJEV_FD_CAM
+	bool "Compile platform data for BJEV Face Detect Camera"
+	---help---
+	BJEV Face Detect Camera
+
+config DV1_CAMERA
+        bool "Compile platform data for enabling digital camera for DV1 board"
+	default n
+        ---help---
+        Support for Mopar Digital Camera on DV1 board
+
+config DV2_CAMERA
+        bool "Compile platform data for enabling digital camera for DV2 board"
+	default n
+        ---help---
+        Support for Mopar Digital Camera on DV2 board
+
+config INTEL_IPU4_IMX290
+	bool "Compile platform data for IMX290"
+	depends on INTEL_IPU4_BXT_P_PDATA
+	---help---
+	"Sony 8MB camera sensor is enabled for HDR function"
+
+config INTEL_IPU4_TI953_SENSOR
+	bool "Compile platform data for ti953 Serializer with camera sensor"
+	default n
+	---help---
+	Camera sensor with DS90UB953-Q1
+
+config INTEL_IPU4_APTINA_RVC
+        bool "Compile platform data for APTINA RVC"
+        default n
+        ---help---
+        Aptina AR1043 camera sensor with MAX9296 for RVC

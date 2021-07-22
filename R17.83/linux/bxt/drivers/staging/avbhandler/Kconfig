@@ -1,0 +1,12 @@
+
+config AVB_MEM_MODULE
+	tristate "HARMAN AVB memory allocator"
+	default n
+	help
+	  Driver to allocate and provide memory for HARMAN AVB service.
+	  This is a pre-requisite for AVB audio/video streaming using HARMAN AVB stack.
+config INCREASED_AVB_MAPPING_SIZE
+	bool "Increasing the memory mapping from 2MB to 4MB"
+	default n
+	help
+      Increasing the memory mapping from 2MB to 4MB

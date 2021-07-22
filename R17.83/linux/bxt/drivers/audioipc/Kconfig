@@ -1,0 +1,12 @@
+#
+# For a description of the syntax of this configuration file,
+# see Documentation/kbuild/kconfig-language.txt.
+#
+
+config ANC_IPC
+	tristate "ANC ipc driver"
+	help
+	  this driver will get can message and send them to hifi core.
+	  If unsure, say N.
+
+

@@ -1,0 +1,94 @@
+#
+# Video configuration
+#
+
+menu "Graphics support"
+	depends on HAS_IOMEM
+
+config HAVE_FB_ATMEL
+	bool
+
+config SH_LCD_MIPI_DSI
+	bool
+
+source "drivers/char/agp/Kconfig"
+
+source "drivers/gpu/vga/Kconfig"
+
+source "drivers/gpu/host1x/Kconfig"
+source "drivers/gpu/ipu-v3/Kconfig"
+
+source "drivers/gpu/drm/Kconfig"
+
+menu "Frame buffer Devices"
+source "drivers/video/fbdev/Kconfig"
+endmenu
+
+source "drivers/video/backlight/Kconfig"
+
+config VGASTATE
+       tristate
+       default n
+
+config R1_DISPLAY
+       tristate "R1 Primary Display (SerDes)"
+       depends on I2C
+       default n
+
+config  FCA_DV1_MOBIS_DISPLAY
+        tristate "MOBIS Primary Display (SerDes)"
+        depends on I2C
+        default n
+
+config  DCSD_DISPLAY
+        tristate "DCSD Primary Display (SerDes)"
+        depends on I2C
+        default n
+
+config  DV1_INT_DISPLAY_ADV7613_SERDES
+        tristate "DV1 Integrated Display ADV7613 SERDES"
+        depends on I2C
+        default n
+
+config  FCA_DV1_H119_DISPLAY
+        tristate "H119 Primary Display (SerDes)"
+        depends on I2C
+        default n
+
+config VIDEOMODE_HELPERS
+	bool
+
+config HDMI
+	bool
+
+config GWM_DISPLAY
+        tristate "GWM Primary Display (SerDes)"
+        depends on I2C
+        default n
+
+config DS2_DISPLAY
+        tristate "DS2 Primary Display (SerDes)"
+        depends on I2C
+        default n
+
+config BJEV_IVI_DISPLAY
+        tristate "BJEV IVI Display - CDS (SerDes)"
+        depends on I2C
+        default n
+
+config BJEV_VTP_DISPLAY
+        tristate "BJEV VTP Display - TDS (SerDes)"
+        depends on I2C
+        default n
+
+if VT
+	source "drivers/video/console/Kconfig"
+endif
+
+if FB || SGI_NEWPORT_CONSOLE
+	source "drivers/video/logo/Kconfig"
+
+endif
+
+
+endmenu

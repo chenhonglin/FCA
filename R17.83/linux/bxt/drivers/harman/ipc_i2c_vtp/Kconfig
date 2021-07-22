@@ -1,0 +1,9 @@
+#
+# IPC-I2C for VTP driver configuration
+#
+
+menuconfig IPC_I2C_VTP
+	tristate "IPC-I2C for VTP driver"
+	default m
+	help
+	   This enables IPC via I2C for VTP driver.
